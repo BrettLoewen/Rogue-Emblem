@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=4 uid="uid://dchqhnreqrwrk"]
+
+[ext_resource type="PackedScene" uid="uid://bfqpx0k2q2jrt" path="res://Scenes/unit.tscn" id="1_ebmjs"]
+[ext_resource type="TileSet" uid="uid://cvl2db8wyrbvt" path="res://Assets/terrain.tres" id="1_wrm1d"]
+[ext_resource type="Texture2D" uid="uid://btj1bpro84sdv" path="res://Assets/Sprites/Grass.png" id="2_3dryh"]
+
+[node name="Game" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(16, 4)
+tile_map_data = PackedByteArray("AAD+////AAAAAAAAAAD/////AAAAAAAAAAD///7/AAAAAAAAAAD///3/AAAAAAAAAAD///z/AAAAAAAAAAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAD//wIAAAAAAAAAAAD//wMAAAAAAAAAAAD+/wMAAAAAAAAAAAD9/wMAAAAAAAAAAAD8/wMAAAAAAAAAAAD+//z/AAAAAAAAAAD9//z/AAAAAAAAAAD8//z/AAAAAAAAAAD8//3/AAAAAAAAAAD9//3/AAAAAAAAAAD+//3/AAAAAAAAAAD+//7/AAAAAAAAAAD9//7/AAAAAAAAAAD8//7/AAAAAAAAAAD8////AAAAAAAAAAD9////AAAAAAAAAAD9/wAAAAAAAAAAAAD8/wAAAAAAAAAAAAD+/wAAAAAAAAAAAAD+/wEAAAAAAAAAAAD+/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD8/wIAAAAAAAAAAAD8/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAADAAIAAAAAAAAAAAADAAEAAAAAAAAAAAADAAAAAAAAAAAAAAADAP//AAAAAAAAAAADAP7/AAAAAAAAAAADAP3/AAAAAAAAAAADAPz/AAAAAAAAAAABAPz/AAAAAAAAAAAAAPz/AAAAAAAAAAACAPz/AAAAAAAAAAACAP3/AAAAAAAAAAABAP3/AAAAAAAAAAABAP7/AAAAAAAAAAAAAP7/AAAAAAAAAAAAAP3/AAAAAAAAAAACAP7/AAAAAAAAAAACAP//AAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAA=")
+tile_set = ExtResource("1_wrm1d")
+
+[node name="Grid" type="Node2D" parent="."]
+visible = false
+
+[node name="Grass" type="Sprite2D" parent="Grid"]
+position = Vector2(0, -12)
+texture = ExtResource("2_3dryh")
+
+[node name="Grass2" type="Sprite2D" parent="Grid"]
+position = Vector2(0, 20)
+texture = ExtResource("2_3dryh")
+
+[node name="Grass3" type="Sprite2D" parent="Grid"]
+position = Vector2(0, 52)
+texture = ExtResource("2_3dryh")
+
+[node name="Grass4" type="Sprite2D" parent="Grid"]
+position = Vector2(0, 84)
+texture = ExtResource("2_3dryh")
+
+[node name="Grass5" type="Sprite2D" parent="Grid"]
+position = Vector2(0, 116)
+texture = ExtResource("2_3dryh")
+
+[node name="Grass6" type="Sprite2D" parent="Grid"]
+position = Vector2(0, -140)
+texture = ExtResource("2_3dryh")
+
+[node name="Grass7" type="Sprite2D" parent="Grid"]
+position = Vector2(0, -108)
+texture = ExtResource("2_3dryh")
+
+[node name="Grass8" type="Sprite2D" parent="Grid"]
+position = Vector2(0, -76)
+texture = ExtResource("2_3dryh")
+
+[node name="Grass9" type="Sprite2D" parent="Grid"]
+position = Vector2(0, -44)
+texture = ExtResource("2_3dryh")
+
+[node name="Unit" parent="." instance=ExtResource("1_ebmjs")]
+position = Vector2(-30, 0)
+scale = Vector2(-1, 1)
+
+[node name="Unit2" parent="." instance=ExtResource("1_ebmjs")]
+position = Vector2(-62, -64)
+scale = Vector2(-1, 1)
+
+[node name="Unit3" parent="." instance=ExtResource("1_ebmjs")]
+position = Vector2(-62, 64)
+scale = Vector2(-1, 1)
+
+[node name="Unit4" parent="." instance=ExtResource("1_ebmjs")]
+position = Vector2(64, 32)
+
+[node name="Unit5" parent="." instance=ExtResource("1_ebmjs")]
+position = Vector2(96, -32)
+
+[node name="Unit6" parent="." instance=ExtResource("1_ebmjs")]
+position = Vector2(96, 96)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(16, 4)
+zoom = Vector2(2, 2)

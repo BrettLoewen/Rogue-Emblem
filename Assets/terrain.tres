@@ -1,0 +1,12 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cvl2db8wyrbvt"]
+
+[ext_resource type="Texture2D" uid="uid://btj1bpro84sdv" path="res://Assets/Sprites/Grass.png" id="1_4fjhq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xsak0"]
+texture = ExtResource("1_4fjhq")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[resource]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_xsak0")
