@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc8w71tikwvu"]
+
+[ext_resource type="Script" uid="uid://cyft2w3emtldq" path="res://Scripts/Tilemap/Tile.gd" id="1_rvq8p"]
+[ext_resource type="Texture2D" uid="uid://btj1bpro84sdv" path="res://Assets/Sprites/Grass.png" id="1_xsjyq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xsjyq"]
+size = Vector2(32, 32)
+
+[node name="Tile" type="Node2D"]
+script = ExtResource("1_rvq8p")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_xsjyq")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_xsjyq")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_mouse_exited"]
