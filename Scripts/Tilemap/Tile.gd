@@ -3,20 +3,10 @@ class_name Tile
 
 @export var highlight: Sprite2D
 
-#signal mouseEntered
-#signal mouseExited
-
 
 func _ready():
 	DeselectTile()
 
-
-#func _on_mouse_entered():
-	#mouseEntered.emit()
-#
-#
-#func _on_mouse_exited():
-	#mouseExited.emit()
 
 # Will be called when the mouse starts hovering over this tile
 func _on_mouse_entered():

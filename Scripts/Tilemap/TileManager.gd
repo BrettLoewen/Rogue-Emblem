@@ -10,9 +10,11 @@ static var Instance: TileManager
 
 var tiles: Dictionary	# Stores references to all of the tiles
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Instance = self
+
 
 func SpawnTiles():
 	print("Spawning")
