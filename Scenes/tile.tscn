@@ -1,16 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://bc8w71tikwvu"]
+[gd_scene load_steps=5 format=3 uid="uid://bc8w71tikwvu"]
 
 [ext_resource type="Script" uid="uid://cyft2w3emtldq" path="res://Scripts/Tilemap/Tile.gd" id="1_rvq8p"]
 [ext_resource type="Texture2D" uid="uid://btj1bpro84sdv" path="res://Assets/Sprites/Grass.png" id="1_xsjyq"]
+[ext_resource type="Texture2D" uid="uid://clmlipsdvdei6" path="res://Assets/Sprites/Highlight.png" id="3_4kj4d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xsjyq"]
 size = Vector2(32, 32)
 
-[node name="Tile" type="Node2D"]
+[node name="Tile" type="Node2D" node_paths=PackedStringArray("highlight")]
 script = ExtResource("1_rvq8p")
+highlight = NodePath("Highlight")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_xsjyq")
+
+[node name="Highlight" type="Sprite2D" parent="."]
+texture = ExtResource("3_4kj4d")
 
 [node name="Area2D" type="Area2D" parent="."]
 

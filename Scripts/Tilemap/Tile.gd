@@ -1,11 +1,42 @@
 extends Node2D
+class_name Tile
 
-signal mouseEntered
-signal mouseExited
+@export var highlight: Sprite2D
 
+#signal mouseEntered
+#signal mouseExited
+
+
+func _ready():
+	DeselectTile()
+
+
+#func _on_mouse_entered():
+	#mouseEntered.emit()
+#
+#
+#func _on_mouse_exited():
+	#mouseExited.emit()
+
+# Will be called when the mouse starts hovering over this tile
 func _on_mouse_entered():
-	mouseEntered.emit()
+	# Add this tile to the selection queue
+	if SelectionManager.Instance != null:
+		SelectionManager.Instance.EnqueueTileForSelection(self)
 
 
+# Will be called when the mouse stops hovering over this tile
 func _on_mouse_exited():
-	mouseExited.emit()
+	# Remove this tile from the selection queue
+	if SelectionManager.Instance != null:
+		SelectionManager.Instance.DequeueTileFromSelection(self)
+
+
+# Used to highlight this tile to show it's been selected
+func SelectTile():
+	highlight.show()
+
+
+# Used to stop highlighting this tile
+func DeselectTile():
+	highlight.hide()
