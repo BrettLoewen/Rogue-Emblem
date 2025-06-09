@@ -27,15 +27,8 @@ func SpawnUnits():
 		add_child(unit)
 	
 		var tileId = TileManager.CreateTileId(coords.x, coords.y)
-		#print("TileID: " + tileId)
 		var tile = TileManager.Instance.tiles[tileId]
-		#print(tile.name)
 		MoveUnitToTile(unit, tile)
-		
-		#var posX = unitSpawnOffset.x + (tile.coords.x * TileManager.Instance.tileSize.x)
-		#var posY = unitSpawnOffset.y + (tile.coords.y * TileManager.Instance.tileSize.y)
-		#unit.position = Vector2i(posX, posY)
-		#unit.SetTile(tile)
 		
 		if isEnemy[index] == false:
 			unit.scale.x = -1
@@ -50,7 +43,6 @@ func MoveUnitToTile(unit: Unit, tile: Tile):
 	var posX = unitSpawnOffset.x + (tile.coords.x * TileManager.Instance.tileSize.x)
 	var posY = unitSpawnOffset.y + (tile.coords.y * TileManager.Instance.tileSize.y)
 	unit.position = Vector2i(posX, posY)
-	#print(Vector2i(posX, posY))
 	unit.SetTile(tile)
 
 

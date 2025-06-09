@@ -1,4 +1,4 @@
-@tool
+#@tool
 extends Node2D
 class_name TileManager
 
@@ -30,11 +30,9 @@ func SpawnTiles():
 	
 	for x in range(gridSize.x):
 		for y in range(gridSize.y):
-			#print("Y: {0}".format([y]))
 			var tile = tileScene.instantiate()
 			tile.position = Vector2i(x * tileSize.x, y * tileSize.y)
 			var tileId = CreateTileId(x, y)
-			#tile.name = "Tile - {0}".format([tileId])
 			tile.SetCoords(x, y)
 			tile.name = "Tile - {0}, {1}".format([x, y])
 			
