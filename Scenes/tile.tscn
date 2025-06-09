@@ -1,18 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://bc8w71tikwvu"]
+[gd_scene load_steps=6 format=3 uid="uid://bc8w71tikwvu"]
 
 [ext_resource type="Script" uid="uid://cyft2w3emtldq" path="res://Scripts/Tilemap/Tile.gd" id="1_rvq8p"]
 [ext_resource type="Texture2D" uid="uid://btj1bpro84sdv" path="res://Assets/Sprites/Grass.png" id="1_xsjyq"]
 [ext_resource type="Texture2D" uid="uid://clmlipsdvdei6" path="res://Assets/Sprites/Highlight.png" id="3_4kj4d"]
+[ext_resource type="Texture2D" uid="uid://c1g8fkcejcvbc" path="res://Assets/Sprites/Edge Lines.png" id="3_khers"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xsjyq"]
 size = Vector2(32, 32)
 
-[node name="Tile" type="Node2D" node_paths=PackedStringArray("highlight")]
+[node name="Tile" type="Node2D" node_paths=PackedStringArray("edgeLines", "highlight")]
 script = ExtResource("1_rvq8p")
+edgeLines = NodePath("Edge Lines")
 highlight = NodePath("Highlight")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_xsjyq")
+
+[node name="Edge Lines" type="Sprite2D" parent="."]
+texture = ExtResource("3_khers")
 
 [node name="Highlight" type="Sprite2D" parent="."]
 texture = ExtResource("3_4kj4d")

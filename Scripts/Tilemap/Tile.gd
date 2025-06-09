@@ -1,11 +1,13 @@
 extends Node2D
 class_name Tile
 
+@export var edgeLines: Sprite2D
 @export var highlight: Sprite2D
 
 
 func _ready():
 	DeselectTile()
+	ResetHighlightTile()
 
 
 # Will be called when the mouse starts hovering over this tile
@@ -22,11 +24,22 @@ func _on_mouse_exited():
 		SelectionManager.Instance.DequeueTileFromSelection(self)
 
 
-# Used to highlight this tile to show it's been selected
+# Used to to show that this tile has been selected
 func SelectTile():
+	edgeLines.show()
+
+
+# Used to stop showing selecting this tile
+func DeselectTile():
+	edgeLines.hide()
+
+
+# Used to highlight this tile
+func HighlightTile(color: Color):
+	highlight.modulate = color
 	highlight.show()
 
 
 # Used to stop highlighting this tile
-func DeselectTile():
+func ResetHighlightTile():
 	highlight.hide()
