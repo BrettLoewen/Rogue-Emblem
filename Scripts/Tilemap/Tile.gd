@@ -3,11 +3,14 @@ class_name Tile
 
 @export var edgeLines: Sprite2D
 @export var highlight: Sprite2D
+@export var mouseDetector: Area2D
 
 var coords: Vector2i
 
 
 func _ready():
+	mouseDetector.mouse_entered.connect(_on_mouse_entered)
+	mouseDetector.mouse_exited.connect(_on_mouse_exited)
 	DeselectTile()
 	ResetHighlightTile()
 

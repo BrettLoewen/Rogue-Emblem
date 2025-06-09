@@ -14,6 +14,7 @@ static var Instance: TileManager
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Instance = self
+	SpawnTiles()
 
 
 func SpawnTiles():
@@ -24,15 +25,24 @@ func SpawnTiles():
 	
 	for child in get_children():
 		child.queue_free()
-		
+	
+	tiles.clear()
+	
 	for x in range(gridSize.x):
 		for y in range(gridSize.y):
+			#print("Y: {0}".format([y]))
 			var tile = tileScene.instantiate()
 			tile.position = Vector2i(x * tileSize.x, y * tileSize.y)
+			var tileId = CreateTileId(x, y)
+			#tile.name = "Tile - {0}".format([tileId])
+			tile.SetCoords(x, y)
 			tile.name = "Tile - {0}, {1}".format([x, y])
+			
 			add_child(tile)
-			tile.owner = self.get_tree().edited_scene_root
-			#tiles[CreateTileId(x - 1, y - 1)] = tile
+			tiles[tileId] = tile
+			
+			# Used for in-editor spawning of tilemap
+			#tile.owner = self.get_tree().edited_scene_root
 
 
 static func CreateTileId(x: int, y: int):

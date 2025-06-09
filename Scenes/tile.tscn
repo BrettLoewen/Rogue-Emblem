@@ -8,10 +8,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xsjyq"]
 size = Vector2(32, 32)
 
-[node name="Tile" type="Node2D" node_paths=PackedStringArray("edgeLines", "highlight")]
+[node name="Tile" type="Node2D" node_paths=PackedStringArray("edgeLines", "highlight", "mouseDetector")]
 script = ExtResource("1_rvq8p")
 edgeLines = NodePath("Edge Lines")
 highlight = NodePath("Highlight")
+mouseDetector = NodePath("Area2D")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_xsjyq")
@@ -27,6 +28,3 @@ texture = ExtResource("3_4kj4d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_xsjyq")
-
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_mouse_exited"]

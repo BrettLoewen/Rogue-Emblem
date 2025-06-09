@@ -24,7 +24,7 @@ func InputHandler():
 	if TileManager.Instance == null or TileManager.Instance.tiles == null:
 		return
 	if selectedTile == null:
-		print("No tile selected")
+		#print("No tile selected")
 		return
 	
 	if selectedUnit != null:
@@ -42,7 +42,7 @@ func InputHandler():
 	else:
 		# Select the unit
 		if Input.is_action_pressed("select"):
-			print("Select: " + selectedTile.name)
+			print("Select: " + selectedUnit.name)
 			var unit = UnitManager.Instance.GetUnitOnTile(selectedTile)
 			if unit != null:
 				selectedUnit = unit

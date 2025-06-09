@@ -10,5 +10,5 @@ func SetSprite(texture: CompressedTexture2D):
 	sprite.texture = texture
 
 
-func SetTile(tile: Tile):
-	self.tile = tile
+func SetTile(newTile: Tile):
+	self.tile = newTile
