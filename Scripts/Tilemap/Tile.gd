@@ -4,6 +4,8 @@ class_name Tile
 @export var edgeLines: Sprite2D
 @export var highlight: Sprite2D
 
+var coords: Vector2i
+
 
 func _ready():
 	DeselectTile()
@@ -43,3 +45,7 @@ func HighlightTile(color: Color):
 # Used to stop highlighting this tile
 func ResetHighlightTile():
 	highlight.hide()
+
+
+func SetCoords(x: int, y: int):
+	coords = Vector2i(x, y)

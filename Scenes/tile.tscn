@@ -20,6 +20,7 @@ texture = ExtResource("1_xsjyq")
 texture = ExtResource("3_khers")
 
 [node name="Highlight" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("3_4kj4d")
 
 [node name="Area2D" type="Area2D" parent="."]

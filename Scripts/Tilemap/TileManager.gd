@@ -8,7 +8,7 @@ static var Instance: TileManager
 @export var gridSize := Vector2i(6, 6)		# Defines how many tiles will be spawned
 @export var tileSize := Vector2i(56, 42)	# Defines how much space a tile takes up
 
-var tiles: Dictionary	# Stores references to all of the tiles
+@export var tiles: Dictionary	# Stores references to all of the tiles
 
 
 # Called when the node enters the scene tree for the first time.
@@ -32,3 +32,8 @@ func SpawnTiles():
 			tile.name = "Tile - {0}, {1}".format([x, y])
 			add_child(tile)
 			tile.owner = self.get_tree().edited_scene_root
+			#tiles[CreateTileId(x - 1, y - 1)] = tile
+
+
+static func CreateTileId(x: int, y: int):
+	return "{0}|{1}".format([x, y])

@@ -8,6 +8,8 @@ var selectedTileQueue: Array[Tile]
 var selectedTile: Tile
 var selectedTileGridPos: Vector2i
 
+var selectedUnit: Unit
+
 
 func _ready():
 	Instance = self
@@ -15,6 +17,36 @@ func _ready():
 
 func _process(_delta):
 	TileSelectHandler()
+	InputHandler()
+
+
+func InputHandler():
+	if TileManager.Instance == null or TileManager.Instance.tiles == null:
+		return
+	if selectedTile == null:
+		print("No tile selected")
+		return
+	
+	if selectedUnit != null:
+		# Try to move the unit
+		if Input.is_action_pressed("select"):
+			print("Move " + selectedUnit.name + " to " + selectedTile.name)
+			var unit = UnitManager.Instance.GetUnitOnTile(selectedTile)
+			if unit == null:
+				UnitManager.Instance.MoveUnitToTile(selectedUnit, selectedTile)
+				selectedUnit = null
+		# Deselect the unit
+		elif Input.is_action_pressed("cancel"):
+			print("Deselect: " + selectedTile.name)
+			selectedUnit = null
+	else:
+		# Select the unit
+		if Input.is_action_pressed("select"):
+			print("Select: " + selectedTile.name)
+			var unit = UnitManager.Instance.GetUnitOnTile(selectedTile)
+			if unit != null:
+				selectedUnit = unit
+
 
 func TileSelectHandler():
 	# If a new tile should be selected

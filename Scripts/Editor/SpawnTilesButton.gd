@@ -1,6 +1,8 @@
 @tool
 extends EditorScript
 
+# From https://docs.godotengine.org/en/stable/tutorials/plugins/running_code_in_the_editor.html#running-one-off-scripts-using-editorscript
+
 func _run():
 	for node in get_all_children(get_scene()):
 		if node is TileManager:
