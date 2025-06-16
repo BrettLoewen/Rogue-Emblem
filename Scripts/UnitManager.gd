@@ -8,6 +8,7 @@ static var Instance: UnitManager
 @export var spawnVectors: Array[Vector2i]
 @export var unitSprites: Array[CompressedTexture2D]
 @export var isEnemy: Array[bool]
+@export var unitStats: Array[Stats]
 
 var units: Array[Unit]
 
@@ -29,6 +30,9 @@ func SpawnUnits():
 		var tileId = TileManager.CreateTileId(coords.x, coords.y)
 		var tile = TileManager.Instance.tiles[tileId]
 		MoveUnitToTile(unit, tile)
+		
+		unit.stats = unitStats[index]
+		unit.name = unit.stats.name
 		
 		if isEnemy[index] == false:
 			unit.scale.x = -1

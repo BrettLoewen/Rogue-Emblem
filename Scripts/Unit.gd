@@ -4,6 +4,7 @@ class_name Unit
 @export var sprite: Sprite2D
 
 var tile: Tile
+var stats: Stats
 
 
 func SetSprite(texture: CompressedTexture2D):

@@ -7,6 +7,11 @@ class_name Tile
 
 var coords: Vector2i
 
+# Pathfinding variables
+var parent: Tile
+var distance: int
+var visited: bool
+
 
 func _ready():
 	mouseDetector.mouse_entered.connect(_on_mouse_entered)

@@ -32,16 +32,17 @@ func InputHandler():
 			var unit = UnitManager.Instance.GetUnitOnTile(selectedTile)
 			if unit == null:
 				UnitManager.Instance.MoveUnitToTile(selectedUnit, selectedTile)
-				selectedUnit = null
+				DeselectUnit()
+				
 		# Deselect the unit
 		elif Input.is_action_just_pressed("cancel"):
-			selectedUnit = null
+			DeselectUnit()
 	else:
 		# Select the unit
 		if Input.is_action_just_pressed("select"):
 			var unit = UnitManager.Instance.GetUnitOnTile(selectedTile)
 			if unit != null:
-				selectedUnit = unit
+				SelectUnit(unit)
 
 
 func TileSelectHandler():
@@ -73,3 +74,13 @@ func DequeueTileFromSelection(tileToDequeue):
 	var index = selectedTileQueue.find(tileToDequeue)
 	if index >= 0:
 		selectedTileQueue.remove_at(index)
+
+
+func SelectUnit(unit: Unit):
+	selectedUnit = unit
+	TileManager.Instance.CalcWalkableTiles(unit)
+
+
+func DeselectUnit():
+	selectedUnit = null
+	TileManager.Instance.ResetPathfindingTiles()

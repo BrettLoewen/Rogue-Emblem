@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bfqpx0k2q2jrt"]
 
-[ext_resource type="Script" uid="uid://cv6h45xl20knv" path="res://Scenes/Unit.gd" id="1_c86kq"]
+[ext_resource type="Script" uid="uid://cv6h45xl20knv" path="res://Scripts/Unit.gd" id="1_c86kq"]
 [ext_resource type="Texture2D" uid="uid://be7dlq3mlpgu8" path="res://Assets/Sprites/Knight.png" id="1_yjw0f"]
 
 [node name="Unit" type="Node2D" node_paths=PackedStringArray("sprite")]

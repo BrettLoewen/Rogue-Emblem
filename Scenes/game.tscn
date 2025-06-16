@@ -1,16 +1,53 @@
-[gd_scene load_steps=12 format=3 uid="uid://dchqhnreqrwrk"]
+[gd_scene load_steps=19 format=3 uid="uid://dchqhnreqrwrk"]
 
 [ext_resource type="Script" uid="uid://40esqlnf0cx7" path="res://Scripts/SelectionManager.gd" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://bfqpx0k2q2jrt" path="res://Scenes/unit.tscn" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://b5f4gmbbrqagh" path="res://Scripts/Tilemap/TileManager.gd" id="1_wowpa"]
 [ext_resource type="PackedScene" uid="uid://bc8w71tikwvu" path="res://Scenes/tile.tscn" id="3_i6g32"]
-[ext_resource type="Script" uid="uid://ddbjitmf0ftil" path="res://Scenes/UnitManager.gd" id="4_wowpa"]
+[ext_resource type="Script" uid="uid://ddbjitmf0ftil" path="res://Scripts/UnitManager.gd" id="4_wowpa"]
 [ext_resource type="Texture2D" uid="uid://be7dlq3mlpgu8" path="res://Assets/Sprites/Knight.png" id="6_o5yvi"]
 [ext_resource type="Texture2D" uid="uid://w6x43mo5q05h" path="res://Assets/Sprites/Ninja.png" id="7_rku1e"]
 [ext_resource type="Texture2D" uid="uid://b4r2vd5e4qvlg" path="res://Assets/Sprites/Viking.png" id="8_rfjv2"]
 [ext_resource type="Texture2D" uid="uid://bpypdyccjs6r4" path="res://Assets/Sprites/Ninja - Evil.png" id="9_1phco"]
 [ext_resource type="Texture2D" uid="uid://c5mrhan28fc0k" path="res://Assets/Sprites/Viking - Evil.png" id="10_nb51f"]
 [ext_resource type="Texture2D" uid="uid://bcxbcqcgvjmse" path="res://Assets/Sprites/Knight - Evil.png" id="11_nnt18"]
+[ext_resource type="Script" uid="uid://ba83tnwc0f1wk" path="res://Scripts/Stats.gd" id="12_rku1e"]
+
+[sub_resource type="Resource" id="Resource_rku1e"]
+script = ExtResource("12_rku1e")
+name = "Knight"
+movement = 5
+metadata/_custom_type_script = "uid://ba83tnwc0f1wk"
+
+[sub_resource type="Resource" id="Resource_rfjv2"]
+script = ExtResource("12_rku1e")
+name = "Ninja"
+movement = 4
+metadata/_custom_type_script = "uid://ba83tnwc0f1wk"
+
+[sub_resource type="Resource" id="Resource_1phco"]
+script = ExtResource("12_rku1e")
+name = "Viking"
+movement = 4
+metadata/_custom_type_script = "uid://ba83tnwc0f1wk"
+
+[sub_resource type="Resource" id="Resource_nb51f"]
+script = ExtResource("12_rku1e")
+name = "Ninja - Enemy"
+movement = 4
+metadata/_custom_type_script = "uid://ba83tnwc0f1wk"
+
+[sub_resource type="Resource" id="Resource_nnt18"]
+script = ExtResource("12_rku1e")
+name = "Viking - Enemy"
+movement = 4
+metadata/_custom_type_script = "uid://ba83tnwc0f1wk"
+
+[sub_resource type="Resource" id="Resource_ewbju"]
+script = ExtResource("12_rku1e")
+name = "Knight - Enemy"
+movement = 4
+metadata/_custom_type_script = "uid://ba83tnwc0f1wk"
 
 [node name="Game" type="Node2D"]
 
@@ -32,6 +69,7 @@ unitScene = ExtResource("1_ebmjs")
 spawnVectors = Array[Vector2i]([Vector2i(1, 1), Vector2i(2, 3), Vector2i(1, 5), Vector2i(6, 2), Vector2i(5, 4), Vector2i(6, 6)])
 unitSprites = Array[CompressedTexture2D]([ExtResource("6_o5yvi"), ExtResource("7_rku1e"), ExtResource("8_rfjv2"), ExtResource("9_1phco"), ExtResource("10_nb51f"), ExtResource("11_nnt18")])
 isEnemy = Array[bool]([false, false, false, true, true, true])
+unitStats = Array[ExtResource("12_rku1e")]([SubResource("Resource_rku1e"), SubResource("Resource_rfjv2"), SubResource("Resource_1phco"), SubResource("Resource_nb51f"), SubResource("Resource_nnt18"), SubResource("Resource_ewbju")])
 
 [node name="Unit" parent="UnitManager" instance=ExtResource("1_ebmjs")]
 position = Vector2(66, 108)
