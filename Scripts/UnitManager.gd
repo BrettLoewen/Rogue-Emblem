@@ -36,6 +36,8 @@ func SpawnUnits():
 		
 		if isEnemy[index] == false:
 			unit.scale.x = -1
+		else:
+			unit.isEnemy = true
 		unit.SetSprite(unitSprites[index])
 		
 		units.append(unit)

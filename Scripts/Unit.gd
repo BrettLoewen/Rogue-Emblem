@@ -5,6 +5,7 @@ class_name Unit
 
 var tile: Tile
 var stats: Stats
+var isEnemy: bool
 
 
 func SetSprite(texture: CompressedTexture2D):

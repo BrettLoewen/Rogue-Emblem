@@ -88,7 +88,7 @@ func CalcWalkableTiles(unit: Unit):
 			AddTileToQueue(tileQueue, tile, tile.coords.x - 1, tile.coords.y) # left
 			AddTileToQueue(tileQueue, tile, tile.coords.x + 1, tile.coords.y) # right
 	
-	
+	return walkableTiles
 
 
 func AddTileToQueue(queue: Array[Tile], parent: Tile, x: int, y: int):

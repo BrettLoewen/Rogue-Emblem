@@ -9,6 +9,7 @@ var selectedTile: Tile
 var selectedTileGridPos: Vector2i
 
 var selectedUnit: Unit
+var walkableTiles: Array[Tile]
 
 
 func _ready():
@@ -30,7 +31,7 @@ func InputHandler():
 		# Try to move the unit
 		if Input.is_action_just_pressed("select"):
 			var unit = UnitManager.Instance.GetUnitOnTile(selectedTile)
-			if unit == null:
+			if unit == null and walkableTiles.has(selectedTile) and selectedUnit.isEnemy == false:
 				UnitManager.Instance.MoveUnitToTile(selectedUnit, selectedTile)
 				DeselectUnit()
 				
@@ -78,9 +79,10 @@ func DequeueTileFromSelection(tileToDequeue):
 
 func SelectUnit(unit: Unit):
 	selectedUnit = unit
-	TileManager.Instance.CalcWalkableTiles(unit)
+	walkableTiles = TileManager.Instance.CalcWalkableTiles(unit)
 
 
 func DeselectUnit():
 	selectedUnit = null
 	TileManager.Instance.ResetPathfindingTiles()
+	walkableTiles = []
